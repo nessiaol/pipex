@@ -34,7 +34,7 @@ PIPEX_FILES	=	pipex.c \
 				parse_cmd_2.c \
 				check_files.c \
 				string.c \
-				exec_cmd_1.c \
+				exec_cmds.c \
 
 SRCS_MINILIBFT = $(addprefix $(MINILIBFT_PATH)/, $(MINILIBFT_FILES))
 SRCS_PIPEX = $(addprefix $(PIPEX_PATH)/, $(PIPEX_FILES))

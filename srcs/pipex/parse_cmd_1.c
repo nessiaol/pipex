@@ -33,7 +33,6 @@ int	ft_search_cmd_1(t_data *data, char **envp)
 	i = 0;
 	path = envp[ft_index_position(envp, "PATH=")] + 5;
 	splitted_paths = ft_strsplit(path, ':');
-	
     while (splitted_paths[i])
 	{
 		buffer_tmp = ft_strjoin(splitted_paths[i], "/");
@@ -42,8 +41,8 @@ int	ft_search_cmd_1(t_data *data, char **envp)
 		if (access(buffer_path, X_OK) != - 1)
 		{
 			data->path_cmd_1 = buffer_path;
-			printf("path comando: %s\n", data->path_cmd_1);
-			free(buffer_path);
+			printf("path comando 1: %s\n", data->path_cmd_1);
+			//free(buffer_path);
 			return(1);
 		}
 		i++;
