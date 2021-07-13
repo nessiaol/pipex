@@ -6,13 +6,13 @@
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 18:16:24 by bde-luca          #+#    #+#             */
-/*   Updated: 2021/06/30 18:22:17 by bde-luca         ###   ########.fr       */
+/*   Updated: 2021/07/05 19:20:59 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pipex.h"
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char *s, char c)
 {
 	size_t	start;
 	size_t	end;

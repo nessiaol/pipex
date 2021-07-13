@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/30 17:49:34 by bde-luca          #+#    #+#             */
-/*   Updated: 2021/07/06 18:28:56 by bde-luca         ###   ########.fr       */
+/*   Created: 2021/01/12 18:41:33 by bde-luca          #+#    #+#             */
+/*   Updated: 2021/07/06 13:42:10 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pipex.h"
 
-void	ft_strdel(char **as)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	if (as && *as)
+	size_t	i;
+
+	i = 0;
+	if (!dstsize)
+		return (ft_strlen(src));
+	if (!dst || !src)
+		return (0);
+	while (i < dstsize - 1 && src[i])
 	{
-		free(*as);
-		*as = NULL;
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }

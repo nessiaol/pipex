@@ -6,7 +6,7 @@
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:44:33 by bde-luca          #+#    #+#             */
-/*   Updated: 2021/06/30 18:22:01 by bde-luca         ###   ########.fr       */
+/*   Updated: 2021/07/06 13:46:56 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		if (ft_strlen(s1) == 0)
 			i = 0;
 		else
-			i = ft_strlen - 1;
+			i = ft_strlen(s1) - 1;
 		ft_strcat(&ptr[i], s2);
 	}
 	return (ptr);

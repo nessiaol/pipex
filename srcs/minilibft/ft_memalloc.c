@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/30 17:49:34 by bde-luca          #+#    #+#             */
-/*   Updated: 2021/07/06 18:28:56 by bde-luca         ###   ########.fr       */
+/*   Created: 2021/07/05 19:31:54 by bde-luca          #+#    #+#             */
+/*   Updated: 2021/07/05 19:32:08 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pipex.h"
 
-void	ft_strdel(char **as)
+void	*ft_memalloc(size_t size)
 {
-	if (as && *as)
+	char	*ptr;
+
+	ptr = NULL;
+	if (size <= 0)
+		return (NULL);
+	ptr = (char *)malloc(size);
+	if (ptr)
 	{
-		free(*as);
-		*as = NULL;
+		ft_bzero(ptr, size);
 	}
+	return ((void *)ptr);
 }

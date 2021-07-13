@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/30 17:49:34 by bde-luca          #+#    #+#             */
-/*   Updated: 2021/07/06 18:28:56 by bde-luca         ###   ########.fr       */
+/*   Created: 2021/01/11 16:15:25 by bde-luca          #+#    #+#             */
+/*   Updated: 2021/07/06 13:38:17 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pipex.h"
 
-void	ft_strdel(char **as)
+void	ft_bzero(void *s, size_t n)
 {
-	if (as && *as)
+	unsigned char	*i;
+
+	i = (unsigned char *)s;
+	while (n > 0)
 	{
-		free(*as);
-		*as = NULL;
+		*i = '\0';
+		i++;
+		n--;
 	}
 }
