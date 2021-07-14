@@ -6,7 +6,7 @@
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 11:21:22 by dmangola          #+#    #+#             */
-/*   Updated: 2021/06/30 18:19:08 by bde-luca         ###   ########.fr       */
+/*   Updated: 2021/07/14 15:52:38 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ static int	ft_count_words(char const *s, char c)
 
 	i = 0;
 	words = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			words++;
 		i++;
 	}
+
 	return (words);
 }
 

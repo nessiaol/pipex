@@ -2,7 +2,6 @@
 
 void	ft_parse_cmd_2(t_data *data, char **argv, char **envp)
 {
-	// char **temp;
 	int	i;
 	int	j;
 	
@@ -14,7 +13,6 @@ void	ft_parse_cmd_2(t_data *data, char **argv, char **envp)
 		exit(1);
 	}
 	data->cmd_2 = data->cmd_and_flags_2[0];
-	printf("cmd 2: %s\n", data->cmd_2);
 	if (!ft_search_cmd_2(data, envp))
 	{
 		perror("Error: not executable command.\n");
@@ -25,14 +23,16 @@ void	ft_parse_cmd_2(t_data *data, char **argv, char **envp)
 int	ft_search_cmd_2(t_data *data, char **envp)
 {
 	short	i;
+	short	x;
 	char	*path;
 	char	**splitted_paths;
 	char	*buffer_tmp;
 	char	*buffer_path;
 	
 	i = 0;
+	x = 0;
 	path = envp[ft_index_position(envp, "PATH=")] + 5;
-	splitted_paths = ft_strsplit(path, ':');
+	splitted_paths = ft_split(path, ':');
     while (splitted_paths[i])
 	{
 		buffer_tmp = ft_strjoin(splitted_paths[i], "/");
@@ -41,13 +41,18 @@ int	ft_search_cmd_2(t_data *data, char **envp)
 		if (access(buffer_path, X_OK) != - 1)
 		{
 			data->path_cmd_2 = buffer_path;
-			printf("path comando 2: %s\n", data->path_cmd_2);
-			//free(buffer_path);
+			free(splitted_paths[i]);
 			return(1);
 		}
+		free(splitted_paths[i]);
 		i++;
 	}
 	free(buffer_path);
+	while (splitted_paths)
+	{
+		free(splitted_paths[x]);
+		x++;
+	}
 	free(splitted_paths);
 	return(0);
 }

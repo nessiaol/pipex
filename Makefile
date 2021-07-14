@@ -27,6 +27,7 @@ MINILIBFT_FILES =	ft_putstr_fd.c \
 					ft_bzero.c \
 					ft_strcpy.c \
 					ft_strlcpy.c \
+					ft_split.c \
 
 PIPEX_FILES	=	pipex.c \
 				utils.c \
@@ -35,7 +36,6 @@ PIPEX_FILES	=	pipex.c \
 				check_files.c \
 				string.c \
 				exec_cmds.c \
-				leaks.c \
 
 SRCS_MINILIBFT = $(addprefix $(MINILIBFT_PATH)/, $(MINILIBFT_FILES))
 SRCS_PIPEX = $(addprefix $(PIPEX_PATH)/, $(PIPEX_FILES))
@@ -47,7 +47,6 @@ OBJS = $(addprefix $(DIR_OBJS)/, $(OBJS_FILES))
 all: $(NAME)
 
 $(OBJS) : $(SRCS)
-	-@mkdir objs
 	-@$(CC) $(FLAGS) $(SRCS) -c
 	mv *.o $(DIR_OBJS)
 
@@ -59,7 +58,6 @@ $(NAME) : $(OBJS)
 clean:
 	@echo Deleting objects files...
 	@rm -f $(OBJS)
-	-@rmdir objs
 	@echo Deleting done!
 
 fclean: clean
