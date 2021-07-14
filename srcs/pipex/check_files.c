@@ -51,6 +51,7 @@ void	ft_checkfile_2(t_data *data, char **argv, char **envp)
 int	ft_search_file_2(t_data *data, char **envp)
 {
 	short	i;
+	int		fd;
 	char	*path;
 	char	*buffer_tmp;
 	char	*buffer_path;
@@ -60,8 +61,12 @@ int	ft_search_file_2(t_data *data, char **envp)
 	buffer_tmp = ft_strjoin(path, "/");
 	buffer_path = ft_strjoin(buffer_tmp, data->file_2);
 	free(buffer_tmp);
+	fd = open(data->file_2, O_CREAT, 00777);
 	if (ft_access_file(buffer_path) > 0)
+	{
+		close(fd);
 		return (1);
+	}
 	free(buffer_path);
 	return (0);
 }
