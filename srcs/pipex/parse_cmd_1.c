@@ -2,7 +2,6 @@
 
 void	ft_parse_cmd_1(t_data *data, char **argv, char **envp)
 {
-	// char **temp;
 	int	i;
 	int	j;
 	

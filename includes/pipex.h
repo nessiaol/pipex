@@ -50,8 +50,10 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_index_position(char **src, char *to_find);
 int		ft_access_file(char *path);
 // int		open_file(char  *file_name, char **envp, int flags, int mode);
-void	ft_call_child(t_data *data, char **envp);
-void 	ft_call_father(t_data *data, char **envp);
+// void	ft_call_child(t_data *data, char **envp);
+// void 	ft_call_father(t_data *data, char **envp);
+
+void check_leaks();
 
 void	ft_parse_cmd_1(t_data *data, char **argv, char **envp);
 int		ft_search_cmd_1(t_data *data, char **envp);

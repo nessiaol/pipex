@@ -1,1 +1,13 @@
-       5
+ls
+lo
+a
+l
+SONO IL FILE 1
+de-luca  2020_roma   1441 14 Jul 13:54 Makefile
+-rw-r--r--   1 bde-luca  2020_roma     25 14 Jul 13:54 f1
+-rw-r--r--   1 bde-luca  2020_roma      9 14 Jul 14:05 f2
+drwxr-xr-x   3 bde-luca  2020_roma    102 14 Jul 13:54 includes
+drwxr-xr-x  21 bde-luca  2020_roma    714 14 Jul 14:05 objs
+-rw-r--r--   1 bde-luca  2020_roma    854 14 Jul 13:54 pipe_study.c
+-rwxr-xr-x   1 bde-luca  2020_roma  19032 14 Jul 14:05 pipex
+drwxr-xr-x   5 bde-luca  2020_roma    170 14 Jul 13:54 srcs
