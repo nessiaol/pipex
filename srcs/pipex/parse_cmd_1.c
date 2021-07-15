@@ -4,10 +4,11 @@ void	ft_parse_cmd_1(t_data *data, char **argv, char **envp)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = 0;
-	if(!(data->cmd_and_flags = ft_strsplit(argv[2], ' ')))
+	data->cmd_and_flags = ft_strsplit(argv[2], ' ');
+	if (!data->cmd_and_flags)
 	{
 		perror("Split of command/flags not valid\n");
 		exit(1);
@@ -28,13 +29,13 @@ int	ft_search_cmd_1(t_data *data, char **envp)
 	char	**splitted_paths;
 	char	*buffer_tmp;
 	char	*buffer_path;
-	
+
 	i = 0;
 	x = 0;
 	buffer_path = NULL;
 	path = envp[ft_index_position(envp, "PATH=")] + 5;
 	splitted_paths = ft_split(path, ':');
-    while (splitted_paths[i])
+	while (splitted_paths[i])
 	{
 		buffer_tmp = ft_strjoin(splitted_paths[i], "/");
 		if (buffer_path)
@@ -63,5 +64,5 @@ int	ft_search_cmd_1(t_data *data, char **envp)
 		i++;
 	}
 	free(splitted_paths);
-	return(0);
+	return (0);
 }

@@ -47,8 +47,6 @@ void		ft_call_parent(pid_t pid, t_data *data, char **envp);
 int			ft_index_position(char **src, char *to_find);
 int			ft_access_file(char *path);
 
-// void		check_leaks();
-
 void		ft_parse_cmd_1(t_data *data, char **argv, char **envp);
 void		ft_parse_cmd_2(t_data *data, char **argv, char **envp);
 int			ft_search_cmd_1(t_data *data, char **envp);

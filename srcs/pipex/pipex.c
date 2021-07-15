@@ -22,20 +22,20 @@ void	ft_check_args(t_data *data, char **argv, char **envp)
 
 void	ft_call_parent(pid_t pid, t_data *data, char **envp)
 {
-		int	status;
+	int	status;
 
-		pid=fork();
-		if (pid==0)
-		{
-			ft_exec_cmd_2(data, envp);
-			exit(1);
-		}
-		else
-		{
-			close(data->pipe_fd[0]);
-			close(data->pipe_fd[1]);
-			waitpid(pid, &status, 0);
-		}
+	pid = fork();
+	if (pid == 0)
+	{
+		ft_exec_cmd_2(data, envp);
+		exit(1);
+	}
+	else
+	{
+		close(data->pipe_fd[0]);
+		close(data->pipe_fd[1]);
+		waitpid(pid, &status, 0);
+	}
 }
 
 void	ft_init(t_data *data)
@@ -58,7 +58,8 @@ int	main(int argc, char **argv, char **envp)
 			perror("error pipe\n");
 			exit(1);
 		}
-		if ((pid = fork()) < 0)
+		pid = fork();
+		if (pid < 0)
 		{
 			perror("error fork\n");
 			exit(1);
@@ -75,5 +76,6 @@ int	main(int argc, char **argv, char **envp)
 		ft_putstr_fd("Format: ./pipex infile \"cmd1\" \"cmd2\" outfile\n", 2);
 	free(data.path_cmd_1);
 	free(data.path_cmd_2);
+	sleep(60);
 	return (0);
 }
