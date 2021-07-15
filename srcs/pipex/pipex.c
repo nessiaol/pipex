@@ -6,7 +6,7 @@
 /*   By: bde-luca <bde-luca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 14:18:36 by bde-luca          #+#    #+#             */
-/*   Updated: 2021/07/14 17:09:51 by bde-luca         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:24:18 by bde-luca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ void	ft_call_parent(pid_t pid, t_data *data, char **envp)
 		}
 }
 
+void	ft_init(t_data *data)
+{
+	data->path_cmd_1 = NULL;
+	data->path_cmd_2 = NULL;
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	pid_t	pid;
@@ -45,6 +51,7 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc == 5)
 	{
+		ft_init(&data);
 		ft_check_args(&data, argv, envp);
 		if (pipe(data.pipe_fd) < 0)
 		{
@@ -63,5 +70,8 @@ int	main(int argc, char **argv, char **envp)
 	}
 	else
 		ft_putstr_fd("Format: ./pipex infile \"cmd1\" \"cmd2\" outfile\n", 2);
+	free(data.path_cmd_1);
+	free(data.path_cmd_2);
+	sleep(60);
 	return (0);
 }

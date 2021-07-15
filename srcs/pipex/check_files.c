@@ -28,7 +28,10 @@ int	ft_search_file_1(t_data *data, char **envp)
 	buffer_path = ft_strjoin(buffer_tmp, data->file_1);
 	free(buffer_tmp);
 	if (ft_access_file(buffer_path) > 0)
+	{
+		free(buffer_path);
 		return (1);
+	}
 	free(buffer_path);
 	return (0);
 }
@@ -64,6 +67,7 @@ int	ft_search_file_2(t_data *data, char **envp)
 	fd = open(data->file_2, O_CREAT, 00777);
 	if (ft_access_file(buffer_path) > 0)
 	{
+		free(buffer_path);
 		close(fd);
 		return (1);
 	}

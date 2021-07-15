@@ -7,6 +7,7 @@
 # include <sys/types.h>
 # include <sys/wait.h>	//per waitpid
 # include <fcntl.h>		//per unlink
+# include <string.h>
 # define MAXLINE 64
 # define PUTSTR 0
 # define PRINTF 1
@@ -45,6 +46,8 @@ void		ft_check_args(t_data *data, char **argv, char **envp);
 void		ft_call_parent(pid_t pid, t_data *data, char **envp);
 int			ft_index_position(char **src, char *to_find);
 int			ft_access_file(char *path);
+
+// void		check_leaks();
 
 void		ft_parse_cmd_1(t_data *data, char **argv, char **envp);
 void		ft_parse_cmd_2(t_data *data, char **argv, char **envp);
