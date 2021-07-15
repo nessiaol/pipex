@@ -64,7 +64,10 @@ int	main(int argc, char **argv, char **envp)
 			exit(1);
 		}
 		if (pid == 0)
+		{
 			ft_exec_cmd_1(&data, envp);
+			exit(1);
+		}
 		else
 			ft_call_parent(pid, &data, envp);
 	}
@@ -72,6 +75,5 @@ int	main(int argc, char **argv, char **envp)
 		ft_putstr_fd("Format: ./pipex infile \"cmd1\" \"cmd2\" outfile\n", 2);
 	free(data.path_cmd_1);
 	free(data.path_cmd_2);
-	sleep(60);
 	return (0);
 }

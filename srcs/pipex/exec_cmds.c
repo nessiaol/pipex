@@ -19,8 +19,8 @@ void	ft_exec_cmd_1(t_data *data, char **envp)
 	dup2(data->pipe_fd[1], 1);
     close(data->pipe_fd[0]);
     close(data->pipe_fd[1]);
-    execve(data->path_cmd_1, data->cmd_and_flags, envp);
-	close(data->fd_file_1);
+    if(!execve(data->path_cmd_1, data->cmd_and_flags, envp))
+		exit(1);
 }
 
 void	ft_exec_cmd_2(t_data *data, char **envp)
@@ -30,7 +30,7 @@ void	ft_exec_cmd_2(t_data *data, char **envp)
 	dup2(data->fd_file_2, 1);
 	close(data->pipe_fd[1]);
 	close(data->pipe_fd[0]);
-	execve(data->path_cmd_2, data->cmd_and_flags_2, envp);
-	close(data->fd_file_2);
-	close(data->fd_file_1);
+	if(!execve(data->path_cmd_2, data->cmd_and_flags_2, envp))
+		exit(1);
+	
 }
