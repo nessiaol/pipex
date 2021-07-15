@@ -26,6 +26,8 @@ typedef struct s_data
 	int		fd_file_1;
 	int		fd_file_2;
 	int		pipe_fd[2];
+	short	i;
+	short	x;
 }			t_data;
 
 void		ft_putchar_fd(char c, int fd);
