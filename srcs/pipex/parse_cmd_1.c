@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_cmd_1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmangola <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/15 18:30:16 by dmangola          #+#    #+#             */
+/*   Updated: 2021/07/15 18:30:18 by dmangola         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/pipex.h"
 
 void	ft_parse_cmd_1(t_data *data, char **argv, char **envp)
@@ -23,7 +35,7 @@ void	ft_parse_cmd_1(t_data *data, char **argv, char **envp)
 
 static void	ft_free_str0(t_data *data, char *bf_pt, char **spl_pt)
 {
-	data->path_cmd_1 = strdup(bf_pt);
+	data->path_cmd_1 = ft_strdup(bf_pt);
 	while (spl_pt[data->x])
 	{
 		free(spl_pt[data->x]);

@@ -28,6 +28,7 @@ MINILIBFT_FILES =	ft_putstr_fd.c \
 					ft_strcpy.c \
 					ft_strlcpy.c \
 					ft_split.c \
+					ft_strdup.c \
 
 PIPEX_FILES	=	pipex.c \
 				utils.c \
