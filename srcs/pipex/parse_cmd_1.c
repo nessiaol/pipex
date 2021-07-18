@@ -14,11 +14,6 @@
 
 void	ft_parse_cmd_1(t_data *data, char **argv, char **envp)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
 	data->cmd_and_flags = ft_strsplit(argv[2], ' ');
 	if (!data->cmd_and_flags)
 	{
