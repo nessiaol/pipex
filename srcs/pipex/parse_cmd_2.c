@@ -6,7 +6,7 @@
 /*   By: dmangola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 18:30:23 by dmangola          #+#    #+#             */
-/*   Updated: 2021/07/15 18:30:24 by dmangola         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:08:23 by dmangola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@ void	ft_parse_cmd_2(t_data *data, char **argv, char **envp)
 	data->cmd_2 = data->cmd_and_flags_2[0];
 	if (!ft_search_cmd_2(data, envp))
 	{
-		perror("Error: not executable command.\n");
+		ft_putstr_fd("Error: not executable command 2.\n", 1);
+		ft_putstr_fd(data->cmd_1, 1);
+		ft_putstr_fd(": ", 1);
+		ft_putstr_fd(data->cmd_2, 1);
+		ft_putstr_fd("\n", 1);
+		perror("");
 		exit(1);
 	}	
 }
@@ -63,6 +68,7 @@ int	ft_search_cmd_2(t_data *data, char **envp)
 	buffer_path = NULL;
 	path = envp[ft_index_position(envp, "PATH=")] + 5;
 	splitted_paths = ft_split(path, ':');
+	data->i = 0;
 	while (splitted_paths[data->i])
 	{
 		buffer_tmp = ft_strjoin(splitted_paths[data->i], "/");

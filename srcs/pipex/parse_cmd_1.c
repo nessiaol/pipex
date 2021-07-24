@@ -23,7 +23,7 @@ void	ft_parse_cmd_1(t_data *data, char **argv, char **envp)
 	data->cmd_1 = data->cmd_and_flags[0];
 	if (!ft_search_cmd_1(data, envp))
 	{
-		perror("Error: not executable command.\n");
+		perror("Error: not executable command 1.\n");
 		exit(1);
 	}
 }

@@ -21,8 +21,6 @@
 # include <fcntl.h>		//per unlink
 # include <string.h>
 # define MAXLINE 64
-# define PUTSTR 0
-# define PRINTF 1
 
 typedef struct s_data
 {
